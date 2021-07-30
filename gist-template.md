@@ -213,6 +213,15 @@ Greedy, denoted by using '.+',  means that the match will be the longest possibl
         console.log(result); // supercali
 
 ### Boundaries
+Boundaries allows the search to look for a specific string and only that string. Denoted with \b at the beginning of and/or end of a string.
+
+    Example:
+        let string = 'I love coding!! I also like to play music';
+        let regex = /\bcoding\b/;
+
+        let result = string.match(regex);
+
+        console.log(result); // true
 
 ### Back-references
 
