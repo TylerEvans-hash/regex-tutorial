@@ -213,9 +213,11 @@ Greedy, denoted by using '.+',  means that the match will be the longest possibl
         console.log(result); // supercali
 
 ### Boundaries
+
 Boundaries allows the search to look for a specific string and only that string. Denoted with \b at the beginning of and/or end of a string.
 
     Example:
+
         let string = 'I love coding!! I also like to play music';
         let regex = /\bcoding\b/;
 
@@ -224,6 +226,30 @@ Boundaries allows the search to look for a specific string and only that string.
         console.log(result); // true
 
 ### Back-references
+
+Back References are used when there is a group. Denoted by \N, where N is the group number, or by \k<name>, where name is a reference to a named group.
+
+    \N Example: 
+
+        let string = `The boy said: "That's not fair!!!".`;
+        let regex = /(['"])(.*?)\1/g;
+
+        let result = string.match(regex);
+        
+        console.log(result); // "That's not fair!!!"
+
+    In this example the \1 in the regex refers to the grouping (['"]). Since the single ' is in the first index of the grouping the \1 refers back to this.
+
+    \k<name> Example:
+
+        let string = `The boy said: "That's not fair!!!".`;
+        let regex = /(?<quote>['"])(.*?)\k<quote>/g;
+
+        let result = string.match(regex);
+
+        console.log(result); // "That's not fair!!!"
+
+    In this example the " is first in the string to occur. This is then saved in the \k<name>. Once the \k<quote> is referenced it chooses the "
 
 ### Look-ahead and Look-behind
 
