@@ -71,6 +71,27 @@ Quantifiers allow you to match the number of instances of a specified character,
 
 ### OR Operator
 
+The OR operator | allows you to find alternations in a string.
+
+    OR Operator examples:
+        Let's say you want to choose between multiple characters in the spelling of the word grey/gray.
+
+            let string = 'There are two spellings of grey and gray';
+            let regex = /gr(e|a)y/g;
+
+            let result = string.match(regex);
+
+            console.log(result);
+
+        The output would show both 'grey' and 'gray'. Take a look at the regex used in this example. The OR operator is used inbtween the two different characters that are allowed '(e|a)'. So the string can contain an 'e' or an 'a' in grey/gray.
+
+        Let's say you want to find the words 'spaghetti' and 'bread' in a string.
+
+            let string = 'I like both spaghetti and garlic bread together';
+            let regex = /spaghetti|bread/gi;
+
+            let result = string.match(regex);
+
 ### Character Classes
 
 ### Flags
