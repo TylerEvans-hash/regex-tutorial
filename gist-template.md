@@ -138,6 +138,28 @@ When writing Regular Expression flags may be used to affect the search. Listed b
 
 ### Grouping and Capturing
 
+Grouping is an essential part of writing regular expressions and is denoted using parenthesis (). Inside the paranthesis is what you are grouping together, whether that be letters or digits. With grouping you can validate data and formatting, find emails or specific words in a string such as domains.
+
+    Example:
+        Let's say you wanted to find emails in a string.
+
+            let string = 'This is the email test@test.com and the rest is just irrelevant';
+            let regex = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+
+            let result = string.match(regex);
+
+            console.log(result);
+
+        The output: ['test@test.com']
+
+        Let's break the regex down.
+
+            The first grouping, ([a-z0-9_\.-]+), is searching for a string consisting of letters or numbers followed by dots underscores or hyphens
+            After the first grouping there is an @ symbol
+            The Second grouping, ([\da-z\.-]+), is searching for a 'digit' class or letters a-z followed by dots underscores or hyphens
+            After the second grouping there is a '.'
+            The Third grouping, ([a-z\.]{2,6}), is searching for a string of letters followed by dots underscores or hyphens
+
 ### Bracket Expressions
 
 ### Greedy and Lazy Match
