@@ -192,6 +192,26 @@ Curly braces are used to specify an exact amount of times a thing is to match. C
 
 ### Greedy and Lazy Match
 
+Greedy, denoted by using '.+',  means that the match will be the longest possible string. And Lazy, denoted by using '.+?',  means the match will be the shortest possible string.
+
+    Greedy Example:
+
+        let string = 'supercalifragilisticexpialidocious';
+        let regex = /s.+i/;
+
+        let result = string.match(regex);
+
+        console.log(result); // supercalifragilisticexpialidoci
+
+    Lazy Example:
+
+        let string = 'supercalifragilisticexpialidocious';
+        let regex = /s.+?i/;
+
+        let result = string.match(regex);
+
+        console.log(result); // supercali
+
 ### Boundaries
 
 ### Back-references
