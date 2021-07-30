@@ -122,6 +122,20 @@ Character classes in regex refers to characters or symbols that belong to a cert
 
 ### Flags
 
+When writing Regular Expression flags may be used to affect the search. Listed below are the 6 flags that are in JavaScript along with a brief explanation.
+
+1. i - This flag changes the search to be case-insensitive, so that there is no difference between A and a. This is important if you are looking for a specific word that can be capitalized or lowercased given the circumstances.
+
+2. g - This flag allows the search to look for all matches. If this flag is not used, the search will only return the first match.
+
+3. m - This is changes the search into 'Multiline' mode. This means if there is a string that has multiple lines, such as a paragraph, the search will be through each line.
+
+4. s - This flag  changes  the search into 'dotall' mode. This allows a dot '.' to match the newline character \n
+
+5. u - This flag enables full Unicode support in the search. This means that if you were to search emojis or special characters such as A ბ ㄱ, then you can you \p{L} to find a letter in an language.
+
+6. y - This is the 'sticky' flag. This allows the search to be performed at a given position in the string. An example of this would be syntax highlighting systems. When you declare a variable in JavaScript, let var = 'string'; the Syntax system looks at position 4 since it needs to read the variable name.
+
 ### Grouping and Capturing
 
 ### Bracket Expressions
