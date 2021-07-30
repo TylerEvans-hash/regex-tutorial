@@ -281,7 +281,6 @@ Look-behind is used when you want to find something but only when it comes after
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
 Hello my name is Tyler! This is a project I made to help out beginners to Regular Expressions. I hope this gives you a simple understanding of what regular exressions are and how they are used.
 
 ### Authors Git-Hub
