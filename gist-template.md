@@ -162,6 +162,34 @@ Grouping is an essential part of writing regular expressions and is denoted usin
 
 ### Bracket Expressions
 
+Brackets are used to indicate a set of specific characters to match, so any characters between the brackets will match. 
+
+    Example: 
+        Let's say you were given the string 'pandamonium' and your task was to find all the 'a' and 'o' charactes in it. The following code shows how to do that.
+
+            let string = 'pandamonium';
+            let regex = /[ao]/g;
+
+            let result = string.match(regex);
+
+            console.log(result);
+
+        The output would be ['a', 'a, 'o']
+
+Curly braces are used to specify an exact amount of times a thing is to match. Curly braces come after an expression. See below for an example.
+
+    Example:
+        Let's say you were given 'banana' and you needs to find 'nana'
+
+            let string = 'banana';
+            let regex = /na{2}/;
+
+            let result = string.match(regex);
+
+            console.log(result);
+
+        The output would be matched to ['nana']. In this instance na occurs twice
+
 ### Greedy and Lazy Match
 
 ### Boundaries
