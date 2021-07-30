@@ -85,14 +85,40 @@ The OR operator | allows you to find alternations in a string.
 
         The output would show both 'grey' and 'gray'. Take a look at the regex used in this example. The OR operator is used inbtween the two different characters that are allowed '(e|a)'. So the string can contain an 'e' or an 'a' in grey/gray.
 
-        Let's say you want to find the words 'spaghetti' and 'bread' in a string.
+        Let's say you want to find the words 'spaghetti' or 'bread' in a string.
 
             let string = 'I like both spaghetti and garlic bread together';
             let regex = /spaghetti|bread/gi;
 
             let result = string.match(regex);
 
+            console.log(result);
+
+        The output would be an array of ['spaghetti', 'bread']. This examples regex looks for 'spaghetti' or 'bread' and returns them to the result variable in an array.
+
 ### Character Classes
+
+Character classes in regex refers to characters or symbols that belong to a certain set. Such as the 'word' class, this is any wordly character that is a letter of the Latin alphabet.
+
+    Here are a few classes:
+        1. \w - Word class (a-z, A-Z)
+        2. \d - Digit class (0-9)
+        3. \s - Space class (refers to spaces in a string)
+
+    Example: 
+        Let's say you wanted to change the formatting of a formatted phone number to one string with just numbers and no spaces. To do this we will be using the 'g' flag which will look for all of the specified search and the join() method as well.
+
+            let string = '+1(234)567-8901'
+            let regex = /\d/g;
+
+            let result = string.match(regex).join('');
+
+            console.log(result);
+
+        The output would be ['12345678901'].
+        Without the join method the output would be ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1'].
+
+        This is a simple way to get all of a specific character class in one string.
 
 ### Flags
 
