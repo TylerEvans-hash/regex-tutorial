@@ -6,10 +6,13 @@ Regular expressions play a vital role in programming. They used very often in th
 
 Regular Expressions allow you to parse through a string (literal) and search for specific patterns. This will allow you to validate emails, passwords, etc.
 
-This is an example of a regular expression:
-(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+Here are a few examples regular expressions used to validate an email:
 
-This specific regex was written to validate emails. There are definitely many other ways to do this, but this is just an example.
+    1. (?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])
+
+    2. /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+These specific regex were written to validate emails. There are definitely many other ways to do this, but this is just an example.
 
 ## Table of Contents
 
@@ -40,8 +43,7 @@ Anchors are special characters that allow the you to mark the beginning of the t
             let string = 'Regex';
             console.log(/^R/.test(string));
 
-    This would output true in the console. The regex used in this exampls is /^R/. This uses the caret anchor to specify the begining of the string and the 'R' is the letter
-    that we want to test. Since 'R' is the first letter in the string 'Regex', the text returns true.
+        This would output true in the console. The regex used in this exampls is /^R/. This uses the caret anchor to specify the begining of the string and the 'R' is the letter that we want to test. Since 'R' is the first letter in the string 'Regex', the text returns true.
 
     Dollar Anchor example:
         Let's say we have the string 'Regex' and we want to check that it ends with the letter 'x'.
@@ -49,9 +51,23 @@ Anchors are special characters that allow the you to mark the beginning of the t
             let string = 'Regex';
             console.log(/x$/.test(string));
 
-    The console would logout true, as in this case the '$' signifies the end of the string. Notice that the anchor comes after the letter that you want to verify, unlike the caret which comes before to signify the beginning. 
+        The console would logout true, as in this case the '$' signifies the end of the string. Notice that the anchor comes after the letter that you want to verify, unlike the caret which comes before to signify the beginning. 
 
 ### Quantifiers
+
+Quantifiers allow you to match the number of instances of a specified character, group, or character class within a given string.
+
+    Quantifier Example:
+        Let's say you wanted to find the year from a date within a string. You can use quantifiers to do this.
+
+            let string = 'The date is 7/29/2020';
+            let regex = /\d{4}/;
+
+            let result = string.match(regex);
+
+            console.log(result);
+
+        Console would display an array of ["2020"]. This regex is looking for 4 digits in a sequence and is the same as /\d\d\d\d/. Although this would leave out the month and the day, this regex would only work if the year was not abreviated.
 
 ### OR Operator
 
